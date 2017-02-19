@@ -1,0 +1,108 @@
+﻿@{
+    var entryId = "";
+    var book = "";
+    var chapterInput = "";
+    var verseInput = "";
+    var notes = "";
+    int chapter;
+    int verse;
+
+    if (!IsPost)
+    {
+        if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+        {
+            entryId = Request.QueryString["ID"];
+            var db = Database.Open("ScriptureJournal");
+            var dbCommand = "SELECT * FROM Journal WHERE ID = @0";
+            var row = db.QuerySingle(dbCommand, entryId);
+
+            if (row != null)
+            {
+                book = row.Book;
+                chapter = row.Chapter;
+                chapterInput = chapter.ToString();
+                verse = row.Verse;
+                verseInput = verse.ToString();
+                notes = row.Notes;
+                
+
+            }
+            else
+            {
+                Validation.AddFormError("No movie was selected.");
+            }
+        }
+        else
+        {
+            Validation.AddFormError("No movie was selected.");
+        }
+    }
+
+    if (IsPost)
+    {
+        Validation.RequireField("book", "You must enter a Book");
+        Validation.RequireField("chapterInput", "Chapter is required");
+        Validation.RequireField("verseInput", "You haven't entered a Verse");
+        Validation.RequireField("notes", "Notes are required");
+        Validation.RequireField("entryId", "No Entry ID was submitted!");
+
+        book = Request.Form["book"];
+        chapterInput = Request.Form["chapterInput"];
+        chapter = chapterInput.AsInt();
+        verseInput = Request.Form["verseInput"];
+        verse = verseInput.AsInt();
+        notes = Request.Form["notes"];
+        
+        entryId = Request.Form["entryId"];
+
+        if (Validation.IsValid())
+        {
+            var db = Database.Open("ScriptureJournal");
+            var updateCommand = "UPDATE Journal SET Book=@0, Chapter=@1, Verse=@2, Notes=@3 WHERE Id=@4";
+            db.Execute(updateCommand, book, chapter, verse, notes, entryId);
+            Response.Redirect("~/Scripture");
+        }
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Edit a Movie</title>
+    <link href="/styles/mainStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Edit a Movie</h1>
+    @Html.ValidationSummary()
+    <form method="post">
+        <fieldset>
+            <legend>Movie Information</legend>
+
+            <p>
+                <label for="book">Book:</label>
+                <input type="text" name="book" value="@book" />
+            </p>
+
+            <p>
+                <label for="chapter">Chapter:</label>
+                <input type="text" name="chapterInput" value="@chapterInput" />
+            </p>
+
+            <p>
+                <label for="verse">Verse:</label>
+                <input type="text" name="verseInput" value="@verseInput" />
+            </p>
+            <p>
+                <label for="notes">Notes:</label>
+                <input type="text" name="notes" value="@notes" />
+            </p>
+            
+
+            <input type="hidden" name="entryId" value="@entryId" />
+
+            <p><input type="submit" name="buttonSubmit" value="Submit Changes" /></p>
+        </fieldset>
+    </form>
+    <p><a href="~/Scripture">Return to Journal listing</a></p>
+</body>
+</html>

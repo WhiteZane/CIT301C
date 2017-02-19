@@ -1,0 +1,9 @@
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\bin\Debug\MegaEscarito.exe.config
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\bin\Debug\MegaEscarito.exe
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\bin\Debug\MegaEscarito.pdb
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\obj\Debug\MegaEscarito.csprojResolveAssemblyReference.cache
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\obj\Debug\MegaEscarito.Form1.resources
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\obj\Debug\MegaEscarito.Properties.Resources.resources
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\obj\Debug\MegaEscarito.csproj.GenerateResource.Cache
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\obj\Debug\MegaEscarito.exe
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaEscarito\MegaEscarito\obj\Debug\MegaEscarito.pdb

@@ -1,0 +1,38 @@
+﻿            body{
+                width:800px;
+                margin:auto;
+                text-align:center;
+            }
+            body a{
+                font-weight: bold;
+            }
+
+            .grid {
+                margin: 4px;
+                border-collapse: collapse;
+                width: 600px;
+                margin:auto;
+            }
+
+                .grid th, .grid td {
+                    border: 1px solid #C0C0C0;
+                    padding: 5px;
+                }
+
+            .head {
+                background-color: #bfedef;
+                font-weight: bold;
+                color: #FFF;
+            }
+
+            .alt {
+                background-color: #bfedef;
+                color: #000;
+            }
+
+.validation-summary-errors {
+    border: 2px dashed red;
+    color: red;
+    font-weight: bold;
+    margin: 12px;
+}
