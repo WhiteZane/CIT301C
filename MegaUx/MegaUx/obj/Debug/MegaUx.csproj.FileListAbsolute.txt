@@ -1,0 +1,98 @@
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\ApplicationInsights.config
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\csc.exe
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\vbc.exe
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\VBCSCompiler.exe
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\MegaUx.dll.config
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\MegaUx.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\MegaUx.pdb
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.Web.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.ApplicationInsights.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.Helpers.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.Mvc.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.Razor.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.WebPages.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.WebPages.Razor.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\WebMatrix.Data.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\WebMatrix.WebData.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.Web.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.ApplicationInsights.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.Helpers.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.Mvc.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.Razor.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.WebPages.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\System.Web.WebPages.Razor.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\WebMatrix.Data.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\bin\WebMatrix.WebData.xml
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\obj\Debug\MegaUx.csprojResolveAssemblyReference.cache
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\obj\Debug\MegaUx.dll
+C:\Users\ghosty\Documents\Winter 2017\CIT301\CIT301C\MegaUx\MegaUx\obj\Debug\MegaUx.pdb
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\ApplicationInsights.config
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\csc.exe
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\vbc.exe
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\VBCSCompiler.exe
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\MegaUx.dll.config
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\MegaUx.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\MegaUx.pdb
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.Web.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.ApplicationInsights.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.Helpers.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.Mvc.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.Razor.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.WebPages.Deployment.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.WebPages.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.WebPages.Razor.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.Web.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.ApplicationInsights.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.Helpers.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.Mvc.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.Razor.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.WebPages.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.WebPages.Deployment.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\System.Web.WebPages.Razor.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\WebMatrix.Data.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\bin\WebMatrix.WebData.xml
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\obj\Debug\MegaUx.csprojResolveAssemblyReference.cache
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\obj\Debug\MegaUx.dll
+C:\Users\sheldon.foster\Source\Repos\cit301c-team-MegaUx\MegaUx\MegaUx\obj\Debug\MegaUx.pdb

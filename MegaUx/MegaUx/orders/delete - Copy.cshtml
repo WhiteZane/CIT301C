@@ -1,0 +1,101 @@
+﻿@{ 
+    var name = "";
+    int width = 0;
+    int length = 0;
+    int drawers = 0;
+    var material = "";
+    int rush = 0;
+    var orderId = "";
+    DateTime date = DateTime.Now;
+    int total = 0;
+
+    if (!IsPost)
+    {
+        if (!Request.QueryString["ID"].IsEmpty())
+        {
+            orderId = Request.QueryString["ID"];
+            var db = Database.Open("deskOrders");
+            var dbCommand = "SELECT * FROM orders WHERE orderId = @0";
+            var row = db.QuerySingle(dbCommand, orderId);
+            if (row != null)
+            {
+                name = row.name;
+                width = row.width;
+                length = row.length;
+                drawers = row.drawers;
+                material = row.material;
+                rush = row.rushOrder;
+                date = row.dateOrdered;
+                total = row.total;
+            }
+            else
+            {
+                Validation.AddFormError("No Order was found");
+            }
+
+        }
+        else
+        {
+            Validation.AddFormError("No Order selected.");
+        }
+    }
+    if (IsPost && !Request["buttonDelete"].IsEmpty())
+    {
+        orderId = Request.Form["orderid"];
+        var db = Database.Open("deskOrders");
+        var deleteCommand = "DELETE FROM orders WHERE orderId = @0";
+        db.Execute(deleteCommand, orderId);
+        Response.Redirect("~/orders");
+    }
+    Layout = "~/Shared/_Layout.cshtml";
+}
+@section PageTitle { Mega Escritorio - Delete Desk Order }
+
+<h1>Delete Order</h1>
+@Html.ValidationSummary()
+<p><a href="~/orders">Return to Orders</a></p>
+
+<form method="post">
+    <fieldset>
+        <legend>Order Information</legend>
+
+        <p>
+            <span>Name:</span>
+            <span>@name</span>
+        </p>
+
+        <p>
+            <span>Width:</span>
+            <span>@width</span>
+        </p>
+
+        <p>
+            <span>Length:</span>
+            <span>@length</span>
+        </p>
+        <p>
+            <span>Drawers:</span>
+            <span>@drawers</span>
+        </p>
+        <p>
+            <span>Material:</span>
+            <span>@material</span>
+        </p>
+        <p>
+            <span>Rush Order:</span>
+            <span>@rush</span>
+        </p>
+            
+        <p>
+            <span>Total:</span>
+            <span>@total</span>
+        </p>
+        <p>
+            <span>Date:</span>
+            <span>@date</span>
+        </p>
+
+        <input type="hidden" name="orderid" value="@orderId" />
+        <p><input type="submit" name="buttonDelete" value="Delete Order" /></p>
+    </fieldset>
+</form>

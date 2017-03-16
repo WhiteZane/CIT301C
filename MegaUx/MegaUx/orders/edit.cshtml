@@ -1,0 +1,222 @@
+﻿@{
+    var customerName = "";
+    var width = 0;
+    var length = 0;
+    var drawers = 0;
+    var material = 0;
+    var orderDays = 0;
+    var orderId = 0;
+
+    var nameClass = "no-error";
+    var widthClass = "no-error";
+    var lengthClass = "no-error";
+    var deskMaterialClass = "no-error";
+
+
+    var db = Database.Open("deskOrders");
+    var materials = db.Query("SELECT * FROM materials");
+
+    if (!IsPost) {
+        if (!Request.QueryString["orderId"].IsEmpty() && Request.QueryString["orderId"].IsInt()) {
+            orderId = Int32.Parse(Request.QueryString["orderId"]);
+            var getOrderSQL = "SELECT * FROM orders WHERE orderId = @0";
+            var order = db.QuerySingle(getOrderSQL, orderId);
+
+            if (order != null) {
+                customerName = order.name;
+                width = order.width;
+                length = order.length;
+                drawers = order.drawers;
+                material = Int32.Parse(order.material);
+                orderDays = order.rushOrder;
+            } else {
+                Validation.AddFormError("No valid Order was selected.");
+            }
+        } else {
+            Validation.AddFormError("No valid Order was selected.");
+        }
+    }
+
+    if (IsPost) {
+        Validation.RequireField("name", "Name on Order is required");
+        Validation.RequireField("width", "Desk width is required");
+        Validation.RequireField("length", "Desk length is required");
+        Validation.RequireField("drawerCount", "Drawer count is required");
+        Validation.RequireField("deskMaterial", "Desk material is required");
+        Validation.RequireField("rushOrder", "Order Days is required");
+
+        Validation.Add("width", Validator.Integer());
+        Validation.Add("length", Validator.Integer());
+        Validation.Add("drawerCount", Validator.Integer());
+        Validation.Add("deskMaterial", Validator.Integer());
+        Validation.Add("rushOrder", Validator.Integer());
+
+        nameClass = !Validation.IsValid("name") ? "has-error has-feedback" : "no-error";
+        widthClass = !Validation.IsValid("width") ? "has-error has-feedback" : "no-error";
+        lengthClass = !Validation.IsValid("length") ? "has-error has-feedback" : "no-error";
+        deskMaterialClass = !Validation.IsValid("deskMaterial") ? "has-error has-feedback" : "no-error";
+
+        orderId = Request.Form["orderId"].AsInt();
+        customerName = Request.Form["name"];
+        width = Request.Form["width"].AsInt();
+        length = Request.Form["length"].AsInt();
+        drawers = Request.Form["drawerCount"].AsInt();
+        material = Request.Form["deskMaterial"].AsInt();
+        orderDays = Request.Form["rushOrder"].AsInt();
+        
+        if (orderId == 0) {
+            Validation.AddFormError("No valid Order was selected.");
+        }
+
+        if (Validation.IsValid()) {
+
+            // start determing total
+            int intialCost = 200;
+            int totalInch = width * length;
+            int costInch = 0;
+            int materialCost = 0;
+            int rushCost = 0;
+            int drawerTotal;
+
+            // cost of inches
+            costInch = (totalInch > 1000) ? totalInch * 5 : 0;
+
+            // cost of drawers
+            drawerTotal = (drawers * 50);
+
+            // cost of Material
+            var materialPricesSQL = "SELECT * FROM materials WHERE Id = @0";
+            var materialPrices = db.QuerySingle(materialPricesSQL, material);
+            materialCost = materialPrices.cost;
+
+            //cost of rush orders
+            var dayPricesSQL = "SELECT * FROM dayPrices WHERE days = @0";
+            var dayPrices = db.QuerySingle(dayPricesSQL, orderDays);
+
+            if (totalInch < 1000) {
+                rushCost = dayPrices.costTier1;
+            } else if (totalInch < 2000) {
+                rushCost = dayPrices.costTier2;
+            } else {
+                rushCost = dayPrices.costTier3;
+            }
+
+            //Calculate totals
+            int total = intialCost + costInch + drawerTotal + materialCost + rushCost;
+
+            //Update record
+            db = Database.Open("deskOrders");
+            var updateCommand = "UPDATE orders SET name = @0, width = @1, length = @2, drawers = @3, material = @4, rushOrder = @5, total = @6 WHERE orderId = @7";
+
+            db.Execute(updateCommand, customerName, width, length, drawers, material, orderDays, total, orderId);
+            Response.Redirect("~/orders");
+
+        }
+    }
+
+    Layout = "~/Shared/_Layout.cshtml";
+
+    var selected = "";
+    var selectedImageSource = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
+
+    var optionSelected = "selected";
+}
+@section PageTitle { Mega Escritorio - Edit Desk Order }
+<div class="col-sm-5 text-left">
+    <form method="post">
+
+        <h2>Edit Desk Order</h2>
+        @Html.ValidationSummary()
+        <input type="hidden" name="orderId" value="@orderId" />
+        <div class="form-group @nameClass">
+            <label class="form-label" for="name">Name on Order:</label>
+            <input class="form-control" type="text" name="name" value="@customerName" aria-describedby="inputErrorName" />
+            <span class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputErrorName">@Html.ValidationMessage("name")</span>
+        </div>
+        <div class="form-group @widthClass">
+            <label class="form-label" for="width">Desk Width in inches:</label>
+            <input class="form-control" type="text" name="width" value="@width" aria-describedby="inputErrorWidth" />
+            <span class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputErrorWidth">@Html.ValidationMessage("width")</span>
+        </div>
+        <div class="form-group @lengthClass">
+            <label class="form-label" for="length">Desk Length in inches:</label>
+            <input class="form-control" type="text" name="length" value="@length" aria-describedby="inputErrorWidth" />
+            <span class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputErrorLength">@Html.ValidationMessage("length")</span>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="drawerCount">Number of Drawers:</label>
+            <select class="form-control" name="drawerCount" value="@Request.Form["drawerCount"]">
+                <option @{ if (drawers.ToString() == "0") { @optionSelected  } }
+                        value="0">
+                    0 drawers ($0)
+                </option>
+                <option @{ if (drawers.ToString() == "1") { @optionSelected  } }
+                        value="1">
+                    1 drawer ($50)
+                </option>
+                <option @{ if (drawers.ToString() == "2") { @optionSelected  } }
+                        value="2">
+                    2 drawers ($100)
+                </option>
+                <option @{ if (drawers.ToString() == "3") { @optionSelected  } }
+                        value="3">
+                    3 drawers ($150)
+                </option>
+                <option @{ if (drawers.ToString() == "4") { @optionSelected  } }
+                        value="4">
+                    4 drawers ($200)
+                </option>
+                <option @{ if (drawers.ToString() == "5") { @optionSelected  } }
+                        value="5">
+                    5 drawers ($250)
+                </option>
+                <option @{ if (drawers.ToString() == "6") { @optionSelected  } }
+                        value="6">
+                    6 drawers ($300)
+                </option>
+                <option @{ if (drawers.ToString() == "7") { @optionSelected  } }
+                        value="7">
+                    7 drawers ($350)
+                </option>
+            </select>
+            @Html.ValidationMessage("drawerCount")
+        </div>
+        <div class="form-group @deskMaterialClass">
+            <label class="form-label" for="deskMaterial">Desk Material:</label>
+            <select class="form-control" id="deskMaterial" name="deskMaterial" value="@material" aria-describedby="inputErrorDeskMaterial">
+                <option data-imagesource="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" value=""> </option>
+                @{
+                    foreach (var deskMaterial in materials) {
+                        if (deskMaterial["Id"].ToString() == material.ToString()) {
+                            selected = "selected";
+                            selectedImageSource = deskMaterial["imageLink"];
+                        } else {
+                            selected = "";
+                        }
+                        <option @selected data-imagesource="@deskMaterial["imageLink"]" value="@deskMaterial["Id"]">@deskMaterial["description"] ($@deskMaterial["cost"])</option>
+                    }
+                }
+            </select>
+            <span class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputErrorDeskMaterial">@Html.ValidationMessage("deskMaterial")</span>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="rushOrder">Days on Order:</label>
+            <select class="form-control" name="rushOrder" value="@orderDays">
+                <option @{ if (orderDays.ToString() == "14") { @optionSelected  } } value="14">14 days</option>
+                <option @{ if (orderDays.ToString() == "3") { @optionSelected   } } value="3">3 day (rush)</option>
+                <option @{ if (orderDays.ToString() == "5") { @optionSelected   } } value="5">5 day (rush)</option>
+                <option @{ if (orderDays.ToString() == "7") { @optionSelected   } } value="7">7 day (rush)</option>
+            </select>
+            @Html.ValidationMessage("rushOrder")
+        </div>
+        <button class="btn btn-primary" type="submit" name="buttonSubmit">Submit Changes</button>
+        <a class="btn btn-default" href="~/orders">Cancel</a>
+    </form>
+</div>
+<div class="image-frame">
+    <img class="materialImage" src="@selectedImageSource" alt="Selected Desk Material" />
+</div>

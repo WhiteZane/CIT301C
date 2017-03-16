@@ -1,0 +1,57 @@
+﻿@{
+    var db = Database.Open("deskOrders");
+    var deskOrdersSQL = "SELECT * FROM orders";
+    var searchCustomer = "";
+
+    if (!Request.QueryString["searchCustomer"].IsEmpty()) {
+        deskOrdersSQL = "SELECT * FROM orders WHERE name LIKE @0";
+        searchCustomer = "%" + Request.QueryString["searchCustomer"] + "%";
+    }
+
+    var deskOrders = db.Query(deskOrdersSQL, searchCustomer);
+
+    IEnumerable<dynamic> materials = db.Query("SELECT * FROM materials");
+    
+    var grid = new WebGrid(source: deskOrders, canSort: true, canPage: true, rowsPerPage: 5);
+    
+    Layout = "~/Shared/_Layout.cshtml";
+}
+@section PageTitle { Mega Escritorio - View Desk Orders }
+<div>
+    <h2>Desk Orders</h2>
+    <section>
+        <form method="get">
+            <div class="form-group">
+                <label class="form-label" for="searchCustomer">Customer Search:</label>
+                <input class="form-control" type="text" name="searchCustomer" value="@Request.QueryString["searchCustomer"]" aria-describedby="inputErrorSearchCustomer" />
+                <span class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+                <span id="inputErrorSearchCustomer"></span>
+                <div><em>Leave blank to view all results</em></div>
+            </div>
+            <button class="btn btn-primary" type="submit" name="buttonSubmit">Search</button>
+        </form>
+    </section>
+    <section>
+        <div>
+            @grid.GetHtml(
+                tableStyle: "table table-striped table-hover",
+                headerStyle: "head",
+                alternatingRowStyle: "alt",
+                columns: grid.Columns(
+                    grid.Column(format: @<a class="btn btn-default" href="~/orders/edit?orderId=@item.orderId">Edit</a>),
+                    grid.Column("name", "Name", canSort: true, style: "col-sm-2"),
+                    grid.Column("width", "Width", style: "right"),
+                    grid.Column("length", "Length", style: "right"),
+                    grid.Column("drawers", "Drawers", style: "right"),
+                    grid.Column(format: @<span>@{int thisMaterial = Int32.Parse(@item.material) - 1;
+                    } @materials.ElementAt(thisMaterial).description</span>, columnName: "material", header: "Material", style: "right"),
+                    grid.Column("rushOrder", "Order Days", style: "right"),
+                    grid.Column("dateOrdered", "Order Date", canSort: true, style: "right"),
+                    grid.Column("total", "Total Cost", style: "right"),
+                    grid.Column(format: @<a class="btn btn-default" href="~/orders/delete?orderId=@item.orderId">Delete</a>)
+                )
+            )
+        </div>
+        <a class="btn btn-primary" href="~/orders/add">New Order</a>
+    </section>
+</div>

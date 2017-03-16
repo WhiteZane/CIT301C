@@ -6,8 +6,8 @@
 
         if (!Request.QueryString["searchBook"].IsEmpty())
         {
-            selectCommand = "SELECT * FROM Journal WHERE Book = @0";
-            searchTerm = Request.QueryString["searchBook"];
+            selectCommand = "SELECT * FROM Journal WHERE Book LIKE @0";
+            searchTerm = "%" + Request.QueryString["searchBook"] +"%";
         }
 
         if (!Request.QueryString["searchNotes"].IsEmpty())

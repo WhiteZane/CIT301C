@@ -1,0 +1,109 @@
+﻿@{
+    var customerName = "";
+    var width = 0;
+    var length = 0;
+    var drawers = 0;
+    var material = 0;
+    var materialText = "";
+    var orderDays = 0;
+    var orderId = 0;
+
+    var db = Database.Open("deskOrders");
+
+    if (!IsPost) {
+        if (!Request.QueryString["orderId"].IsEmpty() && Request.QueryString["orderId"].IsInt()) {
+            orderId = Int32.Parse(Request.QueryString["orderId"]);
+            var getOrderSQL = "SELECT * FROM orders WHERE orderId = @0";
+            var order = db.QuerySingle(getOrderSQL, orderId);
+
+            if (order != null) {
+                customerName = order.name;
+                width = order.width;
+                length = order.length;
+                drawers = order.drawers;
+                material = Int32.Parse(order.material);
+                orderDays = order.rushOrder;
+
+                var materialSQL = "SELECT * FROM materials WHERE Id = @0";
+                var materialValue = db.QuerySingle(materialSQL, material);
+                materialText = materialValue.description;
+
+            } else {
+                Validation.AddFormError("No valid Order was selected.");
+            }
+        } else {
+            Validation.AddFormError("No valid Order was selected.");
+        }
+    }
+
+    if (IsPost) {
+        Validation.RequireField("orderId", "A valid Order must be selected");
+
+        Validation.Add("orderId", Validator.Integer());
+
+        orderId = Request.Form["orderId"].AsInt();
+
+        if(orderId == 0) {
+            Validation.AddFormError("No valid Order was selected.");
+        }
+
+        if (Validation.IsValid()) {
+
+            //Delete record
+            db = Database.Open("deskOrders");
+            var deleteCommand = "DELETE FROM orders WHERE orderId = @0";
+
+            db.Execute(deleteCommand, orderId);
+            Response.Redirect("~/orders");
+
+        }
+    }
+
+    Layout = "~/Shared/_Layout.cshtml";
+}
+@section PageTitle { Mega Escritorio - Delete Desk Order }
+<div class="col-sm-5 text-left">
+    <form method="post" class="form-horizontal">
+        <h2>Delete Desk Order</h2>
+        @Html.ValidationSummary()
+        <input type="hidden" name="orderId" value="@orderId" />
+        <div class="form-group">
+            <label class="control-label col-sm-4">Name on Order:</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">@customerName</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Desk Width in inches:</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">@width</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Desk Length in inches:</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">@length</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Number of Drawers:</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">@drawers</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Desk Material:</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">@materialText</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Days on Order:</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">@orderDays</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" name="buttonSubmit">Delete Order</button>
+        <a class="btn btn-default" href="~/orders">Cancel</a>
+    </form>
+</div>
